@@ -1,14 +1,18 @@
 import {chromium} from "@playwright/test";
+import * as dotenv from 'dotenv';
 import * as fs  from 'fs';
 
+dotenv.config();
 const { test, expect } = require('@playwright/test');
 
 // TODO: 自分のヤフーアカウントを入力
 // ヤフーアカウント
-const yahooAccount = '';
+const yahooId = `${process.env.YAHOO_ID}`;
 
 // パスワード
-const password = '';
+const yahooPass =  `${process.env.YAHOO_PASS}`;
+
+console.log(`${yahooId}: ${yahooPass}`)
 
 // ダウンロードした本を格納するディレクトリがなければ作成する
 const downloadedDirectory = 'images'
@@ -41,14 +45,14 @@ const moveEBookJapan = async (page) => {
 
   // メアドを入力
   await page.locator('[placeholder="ID\\/携帯電話番号\\/メールアドレス"]').click();
-  await page.locator('[placeholder="ID\\/携帯電話番号\\/メールアドレス"]').fill(yahooAccount);
+  await page.locator('[placeholder="ID\\/携帯電話番号\\/メールアドレス"]').fill(yahooId);
   await page.waitForTimeout(1000);
   await page.locator('[placeholder="ID\\/携帯電話番号\\/メールアドレス"]').press('Enter');
   await expect(page).toHaveURL('https://login.yahoo.co.jp/config/login?.done=https://ebookjapan.yahoo.co.jp/bookshelf/&.src=ebookjapan&verify_skip=1');
 
   // パスワードを入力
   await page.locator('[placeholder="パスワード"]').click();
-  await page.locator('[placeholder="パスワード"]').fill(password);
+  await page.locator('[placeholder="パスワード"]').fill(yahooPass);
   await page.waitForTimeout(1000);
   await page.locator('[placeholder="パスワード"]').press('Enter');
   await expect(page).toHaveURL('https://ebookjapan.yahoo.co.jp/bookshelf/')

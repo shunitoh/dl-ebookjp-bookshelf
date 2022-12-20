@@ -134,3 +134,6 @@ dist
 
 # image direstory
 images
+
+# secret
+.env
