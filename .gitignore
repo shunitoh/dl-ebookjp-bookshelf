@@ -133,7 +133,9 @@ dist
 .idea
 
 # image direstory
-images
+books
+info
+covers
 
 # secret
 .env

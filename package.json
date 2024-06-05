@@ -1,8 +1,13 @@
 {
   "dependencies": {
-    "@playwright/test": "^1.26.0",
+    "@playwright/test": "^1.38.1",
+    "@types/archiver": "^6.0.1",
+    "@types/node": "^20.8.0",
+    "archiver": "^6.0.1",
     "dotenv": "^16.0.3",
-    "playwright": "^1.26.0"
+    "filepix": "^1.0.9",
+    "image-to-pdf": "^2.0.0",
+    "playwright": "^1.38.1"
   },
   "scripts": {
     "test": "npx playwright test --headed "

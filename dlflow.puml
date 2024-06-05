@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+App -> App: 漫画のPage画像を保存するimagesディレクトリを作成
+App -> YahooLogin: eBookJapanのページへ移動 → ログイン画面
+
+YahooLogin -> YahooLogin: ヤフーID入力フォームをクリック
+YahooLogin -> YahooLogin: ヤフーIDを入力する
+YahooLogin -> YahooLogin: Enterを押して確定する
+YahooLogin -> YahooLogin: パスワードを入力する
+YahooLogin -> YahooLogin: Enterを押して確定する
+YahooLogin -> BookShelf: 本棚へ遷移
+
+BookShelf -> BookShelf: 本棚の表示をタイトルだけにする
+loop 本棚にある漫画の数
+    BookShelf -> BookShelf: 表示されている本棚を1から順番にクリック
+end
+
+BookShelf -> BookShelf: 表示されている本棚を1から順番にクリック
+
+@enduml

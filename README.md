@@ -19,3 +19,8 @@ https://support.yahoo-net.jp/PccLogin/s/article/H000004633
 ```shell
 npm run test ./tests/bookshelf.spec.ts
 ```
+
+# TRY
+```shell
+npx playwright codegen https://ebookjapan.yahoo.co.jp/bookshelf
+```
